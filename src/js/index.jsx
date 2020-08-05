@@ -5,7 +5,7 @@ import '../style/index.scss';
 
 class App extends React.Component {
   getWelcomeText = () => {
-    return 'Show Me a Category Page Please';
+    return 'Show Me a Category Page Please...';
   }
 
   render() {
