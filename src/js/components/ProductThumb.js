@@ -3,7 +3,7 @@ import Figure from 'react-bootstrap/Figure';
 import useLoading from '../hooks/useLoading';
 import PropTypes from 'prop-types';
 import { cheapestVariant, findVariantImage } from '../utilities/dataParsingFunctions';
-import '../../style/index.scss';
+
 
 function CategoryPage({ product }) {
   const {

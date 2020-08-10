@@ -1,30 +1,30 @@
 import React, {useState, useEffect} from 'react';
-import axios from 'axios';
-import { useParams } from 'react-router-dom';
+// import axios from 'axios';
+// import { useParams } from 'react-router-dom';
 import ProductThumb from './ProductThumb';
 import ProductInfoModal from './ProductInfoModal';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+// import '../../style/index.scss';
 
-
-function CategoryPage() {
+function Cart() {
   const [products, setProducts] = useState([]);
-  const { category } = useParams();
-  useEffect(() => {
-    console.log(category);
-    axios.get(`http://localhost:8081/api/categories?slug=${category}`)
-      .then(results => {
-        const {data} = results;
-        const [{products}] = data;
-        setProducts(products);
-      });
-  }, []);
+  // const { category } = useParams();
+  // useEffect(() => {
+  //   console.log(category);
+  //   axios.get(`http://localhost:8081/api/categories?slug=${category}`)
+  //     .then(results => {
+  //       const {data} = results;
+  //       const [{products}] = data;
+  //       setProducts(products);
+  //     });
+  // }, []);
 
-  useEffect(() => {
-    console.log('products: ');
-    console.log(products);
-  }, [products]);
+  // useEffect(() => {
+  //   console.log('products: ');
+  //   console.log(products);
+  // }, [products]);
 
   const productsWithModalWrapper = products.map(prod => (
     <Col
@@ -44,6 +44,7 @@ function CategoryPage() {
 
   return (
     <Container className="mt-3">
+      <h1>HOWDY DOODY</h1>
       <Row>
         {productsWithModalWrapper}
       </Row>
@@ -51,4 +52,4 @@ function CategoryPage() {
   );
 }
 
-export default CategoryPage;
+export default Cart;

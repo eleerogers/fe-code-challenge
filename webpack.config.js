@@ -10,7 +10,7 @@ const APP_DIR = path.resolve(__dirname, 'src');
 const isProd = (process.env.NODE_ENV === 'production');
 
 const base = {
-  entry: path.join(APP_DIR, 'js', 'index.jsx'),
+  entry: path.join(APP_DIR, 'js', 'index.js'),
   output: {
     path: BUILD_DIR,
     filename: 'bundle.js',

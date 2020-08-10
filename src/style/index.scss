@@ -2,6 +2,36 @@ body {
     font-family: Helvetica, Arial, sans-serif;
 }
 
+:root {
+    --header-bg-color: #f07b6e;
+    --header-txt-color: #355290;
+}
+
+
+// Header Styles
+
+header {
+    box-shadow: 0px 2px 10px -5px rgba(21,6,5,1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--header-bg-color);
+    color: var(--header-txt-color);
+    padding: 0 10px;
+}
+
+header > a {
+    color: var(--header-txt-color);
+}
+
+.cart-icon:hover {
+    color: white;
+    cursor: pointer;
+}
+
+
+// Product grid styles
+
 .transition {
     transition:opacity 1s linear;
 }
