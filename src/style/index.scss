@@ -1,3 +1,15 @@
 body {
     font-family: Helvetica, Arial, sans-serif;
 }
+
+.transition {
+    transition:opacity 1s linear;
+}
+
+.loading {
+    opacity: 0;
+}
+  
+.done {
+    opacity: 1;
+}

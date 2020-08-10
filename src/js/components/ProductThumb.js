@@ -1,5 +1,6 @@
 import React from 'react';
 import Figure from 'react-bootstrap/Figure';
+import useLoading from '../hooks/useLoading';
 import PropTypes from 'prop-types';
 import { cheapestVariant, findVariantImage } from '../utilities/dataParsingFunctions';
 import '../../style/index.scss';
@@ -13,15 +14,23 @@ function CategoryPage({ product }) {
   const { name: variantName } = cheapestVariant(variants);
   const {url} = findVariantImage(images, variantName);
 
+  const [loading, setLoadingFalse] = useLoading();
+
   return (
-    <Figure>
-      <Figure.Image
-        src={url}
-      />
-      <Figure.Caption>
-        <p>{name}</p>
-      </Figure.Caption>
-    </Figure>
+    <div>
+      <Figure
+        className={`img-fluid p-3 centered transition ${loading ? 'loading' : 'done'}`}
+      >
+        <Figure.Image
+          alt={name}
+          src={url}
+          onLoad={setLoadingFalse}
+        />
+        <Figure.Caption>
+          <p>{name}</p>
+        </Figure.Caption>
+      </Figure>
+    </div>
   );
 }
 
