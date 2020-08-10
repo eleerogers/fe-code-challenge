@@ -1,14 +1,22 @@
 import React from 'react';
+import { Switch, Route } from 'react-router-dom';
+import CategoryPage from './components/CategoryPage';
 import '../style/index.scss';
 
 function App() {
-  function getWelcomeText() {
-    return 'Show Me a Category Page Please...';
-  }
 
   return (
     <div>
-      <h1>{getWelcomeText()}</h1>
+      <Switch>
+        <Route
+          path="/:category"
+        >
+          <CategoryPage />
+        </Route>
+        <Route>
+          <p>404</p>
+        </Route>
+      </Switch>
     </div>
   );
 }
