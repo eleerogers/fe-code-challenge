@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import axios from 'axios';
+import React, { useContext, useEffect } from 'react';
+import { ProductContext } from '../contexts/ProductContext';
 import { useParams } from 'react-router-dom';
 import ProductThumb from './ProductThumb';
 import ProductInfoModal from './ProductInfoModal';
@@ -9,22 +9,13 @@ import Col from 'react-bootstrap/Col';
 
 
 function CategoryPage() {
-  const [products, setProducts] = useState([]);
+  const { products, setCategory } = useContext(ProductContext);
   const { category } = useParams();
-  useEffect(() => {
-    console.log(category);
-    axios.get(`http://localhost:8081/api/categories?slug=${category}`)
-      .then(results => {
-        const {data} = results;
-        const [{products}] = data;
-        setProducts(products);
-      });
-  }, []);
 
   useEffect(() => {
-    console.log('products: ');
-    console.log(products);
-  }, [products]);
+    // setting the category in ProductContext to make correct API call
+    setCategory(category);
+  }, []);
 
   const productsWithModalWrapper = products.map(prod => (
     <Col
