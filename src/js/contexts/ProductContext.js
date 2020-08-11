@@ -11,14 +11,29 @@ function ProductContextProvider({children}) {
   const [category, setCategory] = useState('');
 
   useEffect(() => {
-    axios.get(`http://localhost:8081/api/categories?slug=${category}`)
+    let mounted = true;
+    // since "API calls" aren't really async in this app this is not really necessary, but this is how I would normally do it
+    const source = axios.CancelToken.source();
+    const url = `http://localhost:8081/api/categories?slug=${category}`;
+    axios.get(url, { cancelToken: source.token })
       .then(results => {
         const {data} = results;
-        if (data[0]) {
+        if (mounted && data[0]) {
           const [{products}] = data;
           setProducts(products);
         }
+      })
+      .catch(err => {
+        if (axios.isCancel(err)) {
+          console.log('axios call was cancelled');
+        } else {
+          console.error(err);
+        }
       });
+    return () => {
+      mounted = false;
+      source.cancel();
+    };
   }, [category]);
     
   function addToCart(newItem) {
