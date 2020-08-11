@@ -55,7 +55,12 @@ function ProductInfoModal({ product, children }) {
 
 ProductInfoModal.propTypes = {
   product: PropTypes.shape({
-    name: PropTypes.string.isRequired
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    manufacturer: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      location: PropTypes.string.isRequired
+    })
   }).isRequired,
   children: PropTypes.object.isRequired
 };
