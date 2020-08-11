@@ -1,17 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
+import { ProductContext } from '../contexts/ProductContext';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-// import AddToCartIcon from 'react-bootstrap-icons/dist/icons/cart-plus';
 import PropTypes from 'prop-types';
 
 function ProductInfoModal({ product, children }) {
   const [show, setShow] = useState(false);
   const { name, description, manufacturer: { name: manufacturerName, location} } = product;
+  const { addToCart } = useContext(ProductContext);
+  const { push } = useHistory();
 
   const handleShow = () => setShow(true);
   const handleAddToCart = () => {
-    // handleDelete(itemObj, loggedInAsAdminBool);
-    // setShow(false);
+    addToCart(product);
+    push('/cart');
   };
   const handleCancelDelete = () => {
     setShow(false);
@@ -44,7 +47,6 @@ function ProductInfoModal({ product, children }) {
             Cancel
           </Button>
           <Button onClick={handleAddToCart}>
-            {/* <AddToCartIcon /> */}
             Add to Cart
           </Button>
         </Modal.Footer>

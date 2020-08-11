@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from 'react';
-// import axios from 'axios';
-// import { useParams } from 'react-router-dom';
+import React, {useState, useEffect, useContext} from 'react';
+import { ProductContext } from '../contexts/ProductContext';
+
 import ProductThumb from './ProductThumb';
 import ProductInfoModal from './ProductInfoModal';
 import Container from 'react-bootstrap/Container';
@@ -9,7 +9,7 @@ import Col from 'react-bootstrap/Col';
 // import '../../style/index.scss';
 
 function Cart() {
-  const [products, setProducts] = useState([]);
+  const { cartItems, removeFromCart } = useContext(ProductContext);
   // const { category } = useParams();
   // useEffect(() => {
   //   console.log(category);
@@ -26,7 +26,7 @@ function Cart() {
   //   console.log(products);
   // }, [products]);
 
-  const productsWithModalWrapper = products.map(prod => (
+  const productsWithModalWrapper = cartItems.map(prod => (
     <Col
       key={prod.id}
       sm={12}
