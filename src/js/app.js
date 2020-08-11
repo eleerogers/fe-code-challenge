@@ -21,9 +21,7 @@ function App() {
         >
           <CategoryPage />
         </Route>
-        <Route>
-          <p>404</p>
-        </Route>
+        <Route />
       </Switch>
     </div>
   );

@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+// import AddToCartIcon from 'react-bootstrap-icons/dist/icons/cart-plus';
 import PropTypes from 'prop-types';
 
 function ProductInfoModal({ product, children }) {
   const [show, setShow] = useState(false);
+  const { name, description, manufacturer: { name: manufacturerName, location} } = product;
 
   const handleShow = () => setShow(true);
-  const handleConfirmDelete = () => {
+  const handleAddToCart = () => {
     // handleDelete(itemObj, loggedInAsAdminBool);
     // setShow(false);
   };
@@ -29,21 +31,21 @@ function ProductInfoModal({ product, children }) {
       <Modal show={show} onHide={handleCancelDelete}>
         <Modal.Header closeButton>
           <Modal.Title>
-            {children}
+            {name}
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          Are you sure you want to delete this
-          {' '}
-          {product.name}
-          ?
+          <p>Manufacturer: {manufacturerName} ({location})</p>
+          <p>Description: {description}</p>
+          
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="danger" onClick={handleConfirmDelete}>
-            Yes
-          </Button>
           <Button variant="secondary" onClick={handleCancelDelete}>
             Cancel
+          </Button>
+          <Button onClick={handleAddToCart}>
+            {/* <AddToCartIcon /> */}
+            Add to Cart
           </Button>
         </Modal.Footer>
       </Modal>

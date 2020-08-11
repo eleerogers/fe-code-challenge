@@ -11,7 +11,8 @@ function CategoryPage({ product }) {
     images,
     variants
   } = product;
-  const { name: variantName } = cheapestVariant(variants);
+  const { name: variantName, prices: { regular } } = cheapestVariant(variants);
+  const roundedPrice = Math.round(Number(regular));
   const {url} = findVariantImage(images, variantName);
 
   const [loading, setLoadingFalse] = useLoading();
@@ -26,8 +27,9 @@ function CategoryPage({ product }) {
           src={url}
           onLoad={setLoadingFalse}
         />
-        <Figure.Caption>
-          <p>{name}</p>
+        <Figure.Caption className="flex space-between">
+          <span>{name}</span>
+          <span>${roundedPrice}</span>
         </Figure.Caption>
       </Figure>
     </div>

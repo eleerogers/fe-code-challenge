@@ -3,8 +3,19 @@ body {
 }
 
 :root {
-    --header-bg-color: #f07b6e;
-    --header-txt-color: #355290;
+    --header-bg-color: #346c92a6;
+    --header-txt-color: #9c4242c4;
+}
+
+
+// Flex styles
+
+.flex {
+    display: flex;
+}
+
+.space-between {
+    justify-content: space-between;
 }
 
 
