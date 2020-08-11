@@ -17,7 +17,7 @@ function Cart() {
       return acc + Number(price);
     }, 0);
     setTotalCost(total);
-  });
+  }, [cartItems]);
 
   const cartItemsComponents = cartItems.map(prod => (<CartItem key={prod.id} product={prod} />));
 

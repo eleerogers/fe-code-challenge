@@ -18,7 +18,7 @@ function CartItem({ product }) {
   }, []);
     
   const deleteIcon = <div onClick={() => removeFromCart(id)} ref={ref}>
-    {hovered ? <TrashFill /> : <Trash onClick={() => removeFromCart(id)} ref={ref} />}
+    {hovered ? <TrashFill /> : <Trash />}
   </div>;
     
   return (
