@@ -9,7 +9,7 @@ import TrashFill from 'react-bootstrap-icons/dist/icons/trash-fill';
 function CartItem({ product }) {
   const [hovered, ref] = useHover();
   const { removeFromCart } = useContext(ProductContext);
-  const { images, variants, id } = product;
+  const { images, variants, id, name } = product;
   const { name: variantName, prices: { regular: price } } = cheapestVariant(variants);
   const { url } = findVariantImage(images, variantName);
 
@@ -25,15 +25,21 @@ function CartItem({ product }) {
     <div className="cart-item">
       {deleteIcon}   
       <img src={url} width="130px" />
-      <p>${price}</p>
+      <div>
+        <p>{name}</p>
+        <p>${price}</p>
+      </div>
     </div>
   );
 }
 
 CartItem.propTypes = {
-  item: PropTypes.shape({
-    url: PropTypes.string.isRequired
-  })
+  product: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    images: PropTypes.array.isRequired,
+    variants: PropTypes.array.isRequired
+  }).isRequired
 };
 
 export default CartItem;

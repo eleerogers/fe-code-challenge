@@ -37,7 +37,10 @@ function ProductContextProvider({children}) {
   }, [category]);
     
   function addToCart(newItem) {
-    setCartItems(prevItems => [...prevItems, newItem]);
+    const alreadyInCart = cartItems.find(item => newItem.id === item.id);
+    if (!alreadyInCart) {
+      setCartItems(prevItems => [...prevItems, newItem]);
+    }
   }
     
   function removeFromCart(id) {

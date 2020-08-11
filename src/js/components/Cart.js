@@ -22,7 +22,7 @@ function Cart() {
   const cartItemsComponents = cartItems.map(prod => (<CartItem key={prod.id} product={prod} />));
 
   return (
-    <Container className="mt-3">
+    <Container className="mt-3 cart-page">
       <h1>Check out</h1>
       <div>
         {cartItemsComponents}
