@@ -2,19 +2,20 @@ import React from 'react';
 import Figure from 'react-bootstrap/Figure';
 import useLoading from '../hooks/useLoading';
 import PropTypes from 'prop-types';
-import { cheapestVariant, findVariantImage } from '../utilities/dataParsingFunctions';
+import { cheapestVariant, findVariantImage, getRandomPicNumber } from '../utilities/dataParsingFunctions';
 
 
 function CategoryPage({ product }) {
   const {
     name,
     images,
-    variants
+    variants,
+    id
   } = product;
   const { name: variantName, prices: { regular } } = cheapestVariant(variants);
   const roundedPrice = Math.round(Number(regular));
   const {url} = findVariantImage(images, variantName);
-
+  const picIdNum = getRandomPicNumber(id);
   const [loading, setLoadingFalse] = useLoading();
 
   return (
@@ -24,7 +25,7 @@ function CategoryPage({ product }) {
       >
         <Figure.Image
           alt={name}
-          src={url}
+          src={`${url}/${picIdNum}`}
           onLoad={setLoadingFalse}
         />
         <Figure.Caption className="flex space-between">
@@ -39,6 +40,7 @@ function CategoryPage({ product }) {
 CategoryPage.propTypes = {
   product: PropTypes.shape({
     name: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
     images: PropTypes.array.isRequired,
     variants: PropTypes.array.isRequired
   }).isRequired

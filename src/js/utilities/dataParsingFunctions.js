@@ -12,7 +12,15 @@ function findVariantImage(imagesArr, variantName) {
   return variantImage || firstImage;
 }
 
+function getRandomPicNumber(id) {
+  // get a random but consistent number (1-8) in order to get the same picture every time for each product
+  const numStrFromId = id.split('').filter(char => char == Number(char)).join('');
+  const randomPicNum = (Number(numStrFromId) % 8) + 1;
+  return randomPicNum;
+}
+
 export {
   cheapestVariant,
-  findVariantImage
+  findVariantImage,
+  getRandomPicNumber
 };

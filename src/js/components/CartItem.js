@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { ProductContext } from '../contexts/ProductContext';
 import useHover from '../hooks/useHover';
-import { cheapestVariant, findVariantImage } from '../utilities/dataParsingFunctions';
+import { cheapestVariant, findVariantImage, getRandomPicNumber } from '../utilities/dataParsingFunctions';
 import Trash from 'react-bootstrap-icons/dist/icons/trash';
 import TrashFill from 'react-bootstrap-icons/dist/icons/trash-fill';
 
@@ -12,6 +12,7 @@ function CartItem({ product }) {
   const { images, variants, id, name } = product;
   const { name: variantName, prices: { regular: price } } = cheapestVariant(variants);
   const { url } = findVariantImage(images, variantName);
+  const picIdNum = getRandomPicNumber(id);
 
   useEffect(() => {
     console.log({product});
@@ -24,7 +25,7 @@ function CartItem({ product }) {
   return (
     <div className="cart-item">
       {deleteIcon}   
-      <img src={url} width="130px" />
+      <img src={`${url}/${picIdNum}`} width="130px" />
       <div>
         <p>{name}</p>
         <p>${price}</p>
