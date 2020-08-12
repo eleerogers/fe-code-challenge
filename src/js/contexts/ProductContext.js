@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import useLocalStorage from '../hooks/useLocalStorage';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 
@@ -7,7 +8,7 @@ const ProductContext = React.createContext();
 
 function ProductContextProvider({children}) {
   const [products, setProducts] = useState([]);
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useLocalStorage('cartItems', []);
   const [category, setCategory] = useState('');
 
   useEffect(() => {

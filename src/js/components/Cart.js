@@ -35,7 +35,7 @@ function Cart() {
           Total: {totalCostDisplay}
         </p>
         <p className={`text-centered mb-5 ${cartItems.length > 0 ? 'opacity-0' : 'opacity-1'}`}>
-          (No items in cart)
+          (Your cart is empty)
         </p>
       </div>
     </div>
