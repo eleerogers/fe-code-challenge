@@ -91,6 +91,10 @@ header {
     min-height: 100vh;
 }
 
+.cart-container {
+    padding: 0 1em;
+}
+
 @media only screen and (min-width: 320px) {
     .product-thumb {
         min-width: 290px;
@@ -105,12 +109,19 @@ header {
     }
 
     .cart-container {
-        padding: 0 1em;
+        padding: 0 3em;
     }
 
     header {
         padding-left: 3em;
         padding-right: 3em;
+    }
+
+    .cart-page {
+        margin-top: 2em;
+        max-width: 540px;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
@@ -128,16 +139,17 @@ header {
         padding-left: 4em;
         padding-right: 4em;
     }
+
+    .cart-page {
+        margin-top: 4em;
+        max-width: 680px;
+    }
 }
 
 @media only screen and (min-width: 1024px) {
     .product-thumb {
         min-width: 289.984px;
         min-height: 323.984px;
-    }
-
-    .cart-container {
-        padding: 0 10em;
     }
 
     header {
@@ -153,7 +165,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 20px 0;
+    padding: 20px 0;
+    border-bottom: 1px solid grey;
 }
 
 .cart-item {
@@ -161,9 +174,17 @@ header {
         margin-right: auto;
         margin-left: 10px;   
     }
+
+    svg:hover {
+        cursor: pointer;
+    }
 }
 
 .cart-page {
+    background-color: white;
+    padding-top: .3em;
+    padding-bottom: 1em;
+
     .total-cost {
         text-align: right;
         font-size: 1.3em;
@@ -187,4 +208,10 @@ header {
 
 .text-centered {
     text-align: center;
+}
+
+@media only screen and (max-width: 540px) {
+    .cart-page {
+        height: 100%;
+    }
 }

@@ -2,7 +2,6 @@ import React, {useState, useEffect, useContext} from 'react';
 import { ProductContext } from '../contexts/ProductContext';
 import CartItem from './CartItem';
 import { cheapestVariant } from '../utilities/dataParsingFunctions';
-import Container from 'react-bootstrap/Container';
 
 
 function Cart() {
@@ -26,7 +25,7 @@ function Cart() {
   const cartItemsComponents = cartItems.map(prod => (<CartItem key={prod.id} product={prod} />));
 
   return (
-    <Container className="mt-3 cart-page">
+    <div className="cart-page">
       <h3 className="text-centered mt-5 mb-5">Cart</h3>
       <div className="cart-container">
         <div>
@@ -35,8 +34,11 @@ function Cart() {
         <p className={`total-cost mt-5 mr-2 ${cartItems.length > 0 ? 'opacity-1' : 'opacity-0'}`}>
           Total: {totalCostDisplay}
         </p>
+        <p className={`text-centered mb-5 ${cartItems.length > 0 ? 'opacity-0' : 'opacity-1'}`}>
+          (No items in cart)
+        </p>
       </div>
-    </Container>
+    </div>
   );
 }
 

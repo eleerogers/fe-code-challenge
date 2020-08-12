@@ -13,7 +13,7 @@ function Layout({ children }) {
   return (
     <div>
       <Header />
-      <div className="min-height-container mb-5">
+      <div className="min-height-container">
         <ErrorBoundary key={pathname}>
           {children}
         </ErrorBoundary>
