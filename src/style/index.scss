@@ -73,7 +73,29 @@ header {
 }
 
 
-// Product grid styles
+@media only screen and (min-width: 540px) {
+    header {
+        padding-left: 3em;
+        padding-right: 3em;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    header {
+        padding-left: 4em;
+        padding-right: 4em;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    header {
+        padding-left: 5em;
+        padding-right: 5em;
+    }
+}
+
+
+// Product grid styles (Items by category page)
 
 .transition {
     transition:opacity .5s linear;
@@ -95,33 +117,15 @@ header {
     padding: 0 1em;
 }
 
-@media only screen and (min-width: 320px) {
-    .product-thumb {
-        min-width: 290px;
-        min-height: 324px;
-    }
+.product-thumb {
+    min-width: 290px;
+    min-height: 324px;
 }
 
 @media only screen and (min-width: 540px) {
     .product-thumb {
         min-width: 510px;
         min-height: 524px;
-    }
-
-    .cart-container {
-        padding: 0 3em;
-    }
-
-    header {
-        padding-left: 3em;
-        padding-right: 3em;
-    }
-
-    .cart-page {
-        margin-top: 2em;
-        max-width: 540px;
-        margin-left: auto;
-        margin-right: auto;
     }
 }
 
@@ -130,31 +134,12 @@ header {
         min-width: 330px;
         min-height: 364px;
     }
-
-    .cart-container {
-        padding: 0 5em;
-    }
-
-    header {
-        padding-left: 4em;
-        padding-right: 4em;
-    }
-
-    .cart-page {
-        margin-top: 4em;
-        max-width: 680px;
-    }
 }
 
 @media only screen and (min-width: 1024px) {
     .product-thumb {
         min-width: 289.984px;
         min-height: 323.984px;
-    }
-
-    header {
-        padding-left: 5em;
-        padding-right: 5em;
     }
 }
 
@@ -213,5 +198,29 @@ header {
 @media only screen and (max-width: 540px) {
     .cart-page {
         height: 100%;
+    }
+}
+
+@media only screen and (min-width: 540px) {
+    .cart-container {
+        padding: 0 3em;
+    }
+
+    .cart-page {
+        margin-top: 2em;
+        max-width: 540px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .cart-container {
+        padding: 0 5em;
+    }
+
+    .cart-page {
+        margin-top: 4em;
+        max-width: 680px;
     }
 }
