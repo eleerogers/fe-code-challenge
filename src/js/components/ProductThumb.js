@@ -21,7 +21,7 @@ function CategoryPage({ product }) {
   return (
     <div>
       <Figure
-        className={`img-fluid p-3 centered transition ${loading ? 'loading' : 'done'}`}
+        className={`img-fluid p-3 centered transition ${loading ? 'opacity-0' : 'opacity-1'}`}
       >
         <Figure.Image
           alt={name}

@@ -26,7 +26,7 @@ function ProductInfoModal({ product, children }) {
         size="sm"
         variant="light"
         onClick={handleShow}
-        className="btn-square"
+        className="btn-square product-thumb"
       >
         {children}
       </Button>
