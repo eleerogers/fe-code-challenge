@@ -3,6 +3,7 @@ import { ProductContext } from '../contexts/ProductContext';
 import { useParams } from 'react-router-dom';
 import ProductThumb from './ProductThumb';
 import ProductInfoModal from './ProductInfoModal';
+import { slugToTitle } from '../utilities/dataParsingFunctions';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -11,6 +12,7 @@ import Col from 'react-bootstrap/Col';
 function CategoryPage() {
   const { products, setCategory } = useContext(ProductContext);
   const { category } = useParams();
+  const title = slugToTitle(category);
 
   useEffect(() => {
     // setting the category in ProductContext to make correct API call
@@ -35,6 +37,7 @@ function CategoryPage() {
 
   return (
     <Container className="mt-3">
+      <h3 className="text-centered mt-5 mb-3">{title}</h3>
       <Row>
         {productsWithModalWrapper}
       </Row>

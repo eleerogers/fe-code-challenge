@@ -8,7 +8,7 @@ function Footer() {
   return (
     <Navbar bg="light" sticky="bottom">
       <Container className="pb-1 pt-1">
-        <div className="text-muted font-size-14 ml-auto mr-auto">
+        <div className="text-muted ml-auto mr-auto">
         © {new Date().getFullYear()}
         </div>
       </Container>

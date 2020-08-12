@@ -27,15 +27,15 @@ function Cart() {
 
   return (
     <Container className="mt-3 cart-page">
-      <h3 className="text-centered mt-5">Check out</h3>
-      <Container className="pl-5 pr-5">
+      <h3 className="text-centered mt-5 mb-5">Cart</h3>
+      <div className="cart-container">
         <div>
           {cartItemsComponents}
         </div>
         <p className={`total-cost mt-5 mr-2 ${cartItems.length > 0 ? 'opacity-1' : 'opacity-0'}`}>
           Total: {totalCostDisplay}
         </p>
-      </Container>
+      </div>
     </Container>
   );
 }

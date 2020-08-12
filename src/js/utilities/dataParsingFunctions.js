@@ -19,8 +19,15 @@ function getRandomPicNumber(id) {
   return randomPicNum;
 }
 
+function slugToTitle(slug) {
+  const wordArr = slug.split('-');
+  const capitalized = wordArr.map(word => word[0].toUpperCase() + word.slice(1)).join(' ');
+  return capitalized;
+}
+
 export {
   cheapestVariant,
   findVariantImage,
-  getRandomPicNumber
+  getRandomPicNumber,
+  slugToTitle
 };

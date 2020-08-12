@@ -33,7 +33,7 @@ function CartItem({ product }) {
         onLoad={setLoadingFalse}
         className={`cart-img transition ${loading ? 'opacity-0' : 'opacity-1'}`}
       />
-      <div className="flex cart-item-info">
+      <div className="flex cart-item-info ml-3">
         <p>{name}</p>
         <p>${price}</p>
       </div>

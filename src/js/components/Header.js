@@ -4,10 +4,10 @@ import CartIcon from 'react-bootstrap-icons/dist/icons/cart';
 
 function Header() {
   return (
-    <header className="p-3">
+    <header>
       <h5 className="ml-3 mb-0">Unconventional Arrangements</h5>
       <Link to={'/cart'}>
-        <CartIcon size={25} className="mr-3 cart-icon" />
+        <CartIcon size={25} className="mr-3 ml-2 cart-icon" />
       </Link>
     </header>
   );
