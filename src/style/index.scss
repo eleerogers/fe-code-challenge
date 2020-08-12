@@ -6,11 +6,17 @@
 body {
     font-family: Helvetica, Arial, sans-serif;
     min-width: 320px;
+    // background-color: red;
 }
 
 :root {
-    --header-bg-color: #346c92a6;
-    --header-txt-color: #9c4242c4;
+    --header-bg-color: rgb(59 140 195 / 38%);
+    --header-txt-color: rgb(105 27 27 / 77%);
+    --background-color: #bfd8a96b;
+}
+
+.app-body {
+    background-color: var(--background-color);
 }
 
 $grid-breakpoints: (
@@ -54,6 +60,9 @@ header {
     padding-right: 1em;
     a {
         color: var(--header-txt-color);
+    }
+    a:hover {
+        color: white;
     }
 }
 
