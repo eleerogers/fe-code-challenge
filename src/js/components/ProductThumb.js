@@ -16,7 +16,7 @@ function CategoryPage({ product }) {
   const roundedPrice = Math.round(Number(regular));
   const {url} = findVariantImage(images, variantName);
   const [loading, setLoadingFalse] = useLoading();
-  // I made the getRandomPicNumber util function to help get different pictures for each product, as browsers notice the same 'src' url being used and just use the same image... but I noticed lorempixum.com is very slow, so I didn't want to slow down the app.
+  // ** I made the getRandomPicNumber util function to help get different pictures for each product, as browsers notice the same 'src' url being used and just use the same image... but I noticed lorempixum.com is very slow, so I didn't want to slow down the app. Leaving it in case you'd like to try it (see below).
   const picIdNum = getRandomPicNumber(id);
 
   return (
@@ -26,7 +26,7 @@ function CategoryPage({ product }) {
       >
         <Figure.Image
           alt={name}
-          // if you want different images for different products switch out the 'src' attributes below, and also in the CartItem component.
+          // ** if you want different images for different products switch out the 'src' attributes below, and also in the CartItem component.
           // src={`${url}/${picIdNum}`}
           src={`${url}`}
           onLoad={setLoadingFalse}

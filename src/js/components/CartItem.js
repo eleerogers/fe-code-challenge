@@ -14,7 +14,7 @@ function CartItem({ product }) {
   const [loading, setLoadingFalse] = useLoading();
   const { name: variantName, prices: { regular: price } } = cheapestVariant(variants);
   const { url } = findVariantImage(images, variantName);
-  // I made the getRandomPicNumber util function to help get different pictures for each product, as browsers notice the same 'src' url being used and just use the same image... but I noticed lorempixum.com is very slow, so I didn't want to slow down the app.
+  // ** I made the getRandomPicNumber util function to help get different pictures for each product, as browsers notice the same 'src' url being used and just use the same image... but I noticed lorempixum.com is very slow, so I didn't want to slow down the app. Leaving it in case you'd like to try it (see below).
   const picIdNum = getRandomPicNumber(id);
     
   const deleteIcon = <div className="mr-5" onClick={() => removeFromCart(id)} ref={ref}>
@@ -25,7 +25,7 @@ function CartItem({ product }) {
     <div className="cart-item">
       {deleteIcon}   
       <img
-        // if you want different images for different products switch out the 'src' attributes below, and also in the ProductThumb component.
+        // ** if you want different images for different products switch out the 'src' attributes below, and also in the ProductThumb component.
         // src={`${url}/${picIdNum}`}
         src={`${url}`}
         width="100px"
