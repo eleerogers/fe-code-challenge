@@ -58,7 +58,9 @@ header {
     padding-left: 1em;
     padding-right: 1em;
     font-family: Garamond;
-    text-shadow: 2px 1px 4px rgba(255,255,255,0.56);
+    h4 {
+        text-shadow: 2px 1px 4px rgba(255,255,255,0.56);
+    }
     a {
         color: var(--header-txt-color);
     }
@@ -132,6 +134,13 @@ header {
     }
 }
 
+@media only screen and (min-width: 320px) and (max-width: 540px) {
+    .product-thumb {
+        min-width: 92vw;
+        min-height: 92vw * 1.1;
+    }
+}
+
 @media only screen and (min-width: 540px) {
     .product-thumb {
         min-width: 510px;
@@ -153,8 +162,8 @@ header {
     }
 }
 
-h3, h5 {
-    font-family: Helvetica, sans-serif;
+h4 {
+    text-shadow: 3px 3px 7px #b399a2;
 }
 
 
