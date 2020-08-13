@@ -14,6 +14,7 @@ function Cart() {
   }, []);
 
   useEffect(() => {
+    // Calculate total cost
     const total = cartItems.reduce((acc, cv) => {
       const { variants } = cv;
       const { prices: { regular: price } } = cheapestVariant(variants);

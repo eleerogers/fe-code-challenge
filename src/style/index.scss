@@ -73,6 +73,8 @@ header {
     }
     a {
         color: var(--header-txt-color);
+        transition: color .3s;
+
     }
     a:hover {
         color: white;
@@ -86,7 +88,6 @@ header {
 
 
 .cart-icon:hover {
-    color: white;
     cursor: pointer;
 }
 
@@ -207,6 +208,7 @@ h4 {
     background-color: white;
     padding-top: .3em;
     padding-bottom: 4em;
+    transition: max-width .5s ease-in-out;
 
     .total-cost {
         text-align: right;

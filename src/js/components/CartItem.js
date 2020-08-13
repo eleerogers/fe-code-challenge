@@ -8,13 +8,14 @@ import Trash from 'react-bootstrap-icons/dist/icons/trash';
 import TrashFill from 'react-bootstrap-icons/dist/icons/trash-fill';
 
 function CartItem({ product }) {
+  const { images, variants, id, name } = product;
   const [hovered, ref] = useHover();
   const { removeFromCart } = useContext(ProductContext);
-  const { images, variants, id, name } = product;
+  const [loading, setLoadingFalse] = useLoading();
   const { name: variantName, prices: { regular: price } } = cheapestVariant(variants);
   const { url } = findVariantImage(images, variantName);
+  // I made the getRandomPicNumber util function to help get different pictures for each product, as browsers notice the same 'src' url being used and just use the same image... but I noticed lorempixum.com is very slow, so I didn't want to slow down the app.
   const picIdNum = getRandomPicNumber(id);
-  const [loading, setLoadingFalse] = useLoading();
     
   const deleteIcon = <div className="mr-5" onClick={() => removeFromCart(id)} ref={ref}>
     {hovered ? <TrashFill size={20} /> : <Trash size={20} />}
@@ -24,7 +25,9 @@ function CartItem({ product }) {
     <div className="cart-item">
       {deleteIcon}   
       <img
-        src={`${url}/${picIdNum}`}
+        // if you want different images for different products switch out the 'src' attributes below, and also in the ProductThumb component.
+        // src={`${url}/${picIdNum}`}
+        src={`${url}`}
         width="100px"
         onLoad={setLoadingFalse}
         className={`cart-img transition ${loading ? 'opacity-0' : 'opacity-1'}`}

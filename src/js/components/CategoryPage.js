@@ -17,6 +17,7 @@ function CategoryPage() {
   useEffect(() => {
     // setting the category in ProductContext to make correct API call
     setCategory(category);
+    // start at top of page
     window.scrollTo(0, 0);
   }, []);
 
