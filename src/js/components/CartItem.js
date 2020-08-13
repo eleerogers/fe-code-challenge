@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { ProductContext } from '../contexts/ProductContext';
 import useHover from '../hooks/useHover';
@@ -15,10 +15,6 @@ function CartItem({ product }) {
   const { url } = findVariantImage(images, variantName);
   const picIdNum = getRandomPicNumber(id);
   const [loading, setLoadingFalse] = useLoading();
-
-  useEffect(() => {
-    console.log({product});
-  }, []);
     
   const deleteIcon = <div className="mr-5" onClick={() => removeFromCart(id)} ref={ref}>
     {hovered ? <TrashFill size={20} /> : <Trash size={20} />}

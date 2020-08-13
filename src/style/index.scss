@@ -33,6 +33,7 @@ $grid-breakpoints: (
 
 @import "bootstrap";
 
+
 // Flex styles
 
 .flex {
@@ -41,6 +42,15 @@ $grid-breakpoints: (
 
 .space-between {
     justify-content: space-between;
+}
+
+.centered {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.margin-top-5rem {
+    margin-top: 5rem;
 }
 
 
@@ -68,6 +78,11 @@ header {
         color: white;
     }
 }
+
+.header-title:hover{
+    color:inherit;
+    text-decoration: none;
+   }
 
 
 .cart-icon:hover {

@@ -25,9 +25,16 @@ function slugToTitle(slug) {
   return capitalized;
 }
 
+function titleToSlug(title) {
+  const wordArr = title.split(' ');
+  const lowerKebabCase = wordArr.map(word => word.toLowerCase()).join('-');
+  return lowerKebabCase;
+}
+
 export {
   cheapestVariant,
   findVariantImage,
   getRandomPicNumber,
-  slugToTitle
+  slugToTitle,
+  titleToSlug
 };

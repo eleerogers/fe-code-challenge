@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import CategoryPage from './components/CategoryPage';
 import Cart from './components/Cart';
+import CategoryDropdown from './components/CategoryDropdown';
 import '../style/index.scss';
 
 function App() {
@@ -21,7 +22,9 @@ function App() {
           >
             <CategoryPage />
           </Route>
-          <Route />
+          <Route>
+            <CategoryDropdown />
+          </Route>
         </Switch>
       </Layout>
     </div>
