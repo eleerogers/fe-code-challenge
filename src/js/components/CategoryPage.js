@@ -37,7 +37,7 @@ function CategoryPage() {
 
   return (
     <Container className="mt-3">
-      <h3 className="text-centered mt-5 mb-3">{title}</h3>
+      <h5 className="text-centered mt-5 mb-3">{title}</h5>
       <Row>
         {productsWithModalWrapper}
       </Row>

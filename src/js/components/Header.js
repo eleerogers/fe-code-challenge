@@ -5,7 +5,7 @@ import CartIcon from 'react-bootstrap-icons/dist/icons/cart';
 function Header() {
   return (
     <header>
-      <h5 className="ml-3 mb-0">Unconventional Arrangements</h5>
+      <h4 className="ml-3 mb-0"><em>Unconventional Arrangements</em></h4>
       <Link to={'/cart'}>
         <CartIcon size={25} className="mr-3 ml-2 cart-icon" />
       </Link>
